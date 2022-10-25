@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="nicol"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-10-25 10:51:26 "/>
+        <attribute name="created" value="bmljb2w7TEFQVE9QLU9HT08zS0UwOzIwMjItMTAtMjU7IjEwOjM0OjUwICI7Mjc3NQ=="/>
+        <attribute name="edited" value="bmljb2w7TEFQVE9QLU9HT08zS0UwOzIwMjItMTAtMjU7IjEwOjUxOjI2ICI7MTsyODg1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="in, operatore, i, fattoriale" type="Integer" array="False" size=""/>
+            <output expression="&quot;Inserisci il numero da controllare: &quot;" newline="True"/>
+            <input variable="in"/>
+            <assign variable="i" expression="1"/>
+            <assign variable="fattoriale" expression="1"/>
+            <assign variable="operatore" expression="in-1"/>
+            <for variable="i" start="1" end="operatore" direction="inc" step="1">
+                <assign variable="fattoriale" expression="i*fattoriale"/>
+            </for>
+            <if expression="((fattoriale+1)/in) % 1 = 0 and in != 1">
+                <then>
+                    <output expression="in &amp; &quot; &#232; un numero primo&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="in &amp; &quot; non &#232; un numero primo&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
