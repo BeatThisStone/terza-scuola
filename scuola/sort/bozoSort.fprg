@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="nicol"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-11-14 04:35:54 "/>
+        <attribute name="created" value="bmljb2w7TEFQVE9QLU9HT08zS0UwOzIwMjItMTEtMTI7IjExOjE2OjAxICI7Mjc2OQ=="/>
+        <attribute name="edited" value="bmljb2w7TEFQVE9QLU9HT08zS0UwOzIwMjItMTEtMTQ7IjA0OjM1OjU0ICI7MTc7Mjk0NQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="i, grandezza" type="Integer" array="False" size=""/>
+            <output expression="&quot;Quanto grande deve essere l'array?&quot;" newline="True"/>
+            <do expression="grandezza &lt;= 0">
+                <input variable="grandezza"/>
+            </do>
+            <declare name="array" type="Integer" array="True" size="grandezza"/>
+            <for variable="i" start="0" end="grandezza-1" direction="inc" step="1">
+                <assign variable="array[i]" expression="random(100)"/>
+            </for>
+            <call expression="scriviArray(array)"/>
+            <call expression="bozoSort(array)"/>
+            <call expression="scriviArray(array)"/>
+        </body>
+    </function>
+    <function name="arraySlotSwap" type="None" variable="">
+        <parameters>
+            <parameter name="array" type="Integer" array="True"/>
+            <parameter name="slot1" type="Integer" array="False"/>
+            <parameter name="slot2" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <assign variable="array[slot1]" expression="array[slot1] + array[slot2]"/>
+            <assign variable="array[slot2]" expression="array[slot1] - array[slot2]"/>
+            <assign variable="array[slot1]" expression="array[slot1] - array[slot2]"/>
+        </body>
+    </function>
+    <function name="bozoSort" type="None" variable="">
+        <parameters>
+            <parameter name="array" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="isSorted" type="Boolean" array="False" size=""/>
+            <declare name="maxIndexValue, i, first, second" type="Integer" array="False" size=""/>
+            <assign variable="maxIndexValue" expression="Size(array)-1"/>
+            <do expression="not isSorted">
+                <assign variable="isSorted" expression="true"/>
+                <for variable="i" start="0" end="maxIndexValue-1" direction="inc" step="1">
+                    <if expression="array[i] &gt; array[i+1]">
+                        <then>
+                            <assign variable="isSorted" expression="false"/>
+                            <assign variable="i" expression="maxIndexValue-1"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+                <if expression="isSorted">
+                    <then/>
+                    <else>
+                        <assign variable="first" expression="random(Size(array))"/>
+                        <do expression="first == second">
+                            <assign variable="second" expression="random(Size(array))"/>
+                        </do>
+                        <call expression="arraySlotSwap(array, first, second)"/>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="scriviArray" type="None" variable="">
+        <parameters>
+            <parameter name="array" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <output expression="&quot;(&quot; &amp; array[0]" newline="False"/>
+            <for variable="i" start="1" end="Size(array)-1" direction="inc" step="1">
+                <output expression="&quot;,&quot; &amp; array[i]" newline="False"/>
+            </for>
+            <output expression="&quot;)&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
