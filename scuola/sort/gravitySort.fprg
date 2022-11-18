@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="nicol"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-11-18 07:53:29 "/>
+        <attribute name="created" value="bmljb2w7TEFQVE9QLU9HT08zS0UwOzIwMjItMTEtMTg7IjA3OjE0OjUyICI7Mjc4NA=="/>
+        <attribute name="edited" value="bmljb2w7TEFQVE9QLU9HT08zS0UwOzIwMjItMTEtMTg7IjA3OjUzOjI5ICI7MTQ7Mjk1MQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="i, n" type="Integer" array="False" size=""/>
+            <input variable="n"/>
+            <declare name="array" type="Integer" array="True" size="n"/>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <assign variable="array[i]" expression="random(100)"/>
+            </for>
+            <call expression="gravitySort(array)"/>
+        </body>
+    </function>
+    <function name="gravitySort" type="None" variable="">
+        <parameters>
+            <parameter name="array" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i, j, k" type="Integer" array="False" size=""/>
+            <declare name="temp" type="Integer" array="True" size="maxValue(array)+1"/>
+            <for variable="i" start="0" end="Size(temp)-1" direction="inc" step="1">
+                <assign variable="temp[i]" expression="0"/>
+            </for>
+            <for variable="i" start="0" end="Size(array)-1" direction="inc" step="1">
+                <for variable="j" start="0" end="array[i]" direction="inc" step="1">
+                    <assign variable="temp[j]" expression="temp[j] + 1"/>
+                </for>
+            </for>
+            <assign variable="k" expression="0"/>
+            <assign variable="i" expression="Size(temp)-1"/>
+            <breakpoint expression="" always="True"/>
+            <while expression="i &gt;= 0">
+                <if expression="temp[i] == 0">
+                    <then>
+                        <assign variable="i" expression="i-1"/>
+                    </then>
+                    <else>
+                        <assign variable="array[k]" expression="i"/>
+                        <assign variable="k" expression="k + 1"/>
+                        <for variable="j" start="i" end="0" direction="dec" step="1">
+                            <assign variable="temp[j]" expression="temp[j] - 1"/>
+                        </for>
+                    </else>
+                </if>
+            </while>
+            <breakpoint expression="" always="True"/>
+            <call expression="invertArray(array)"/>
+        </body>
+    </function>
+    <function name="invertArray" type="None" variable="">
+        <parameters>
+            <parameter name="array" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i, k" type="Integer" array="False" size=""/>
+            <declare name="temp" type="Integer" array="True" size="Size(array)"/>
+            <for variable="i" start="0" end="Size(array)-1" direction="inc" step="1">
+                <assign variable="temp[i]" expression="array[i]"/>
+            </for>
+            <assign variable="k" expression="0"/>
+            <for variable="i" start="Size(array)-1" end="0" direction="dec" step="1">
+                <assign variable="array[k]" expression="temp[i]"/>
+                <assign variable="k" expression="k + 1"/>
+            </for>
+        </body>
+    </function>
+    <function name="maxValue" type="Integer" variable="max">
+        <parameters>
+            <parameter name="array" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i, max" type="Integer" array="False" size=""/>
+            <assign variable="max" expression="0"/>
+            <for variable="i" start="0" end="Size(array)-1" direction="inc" step="1">
+                <if expression="array[i] &gt; max">
+                    <then>
+                        <assign variable="max" expression="array[i]"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
