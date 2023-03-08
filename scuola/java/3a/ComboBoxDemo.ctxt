@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=ComboBoxDemo
+comment0.text=\r\n\ ComboBoxDemo.java\ uses\ these\ additional\ files\:\r\n\ \ \ images/Bird.gif\r\n\ \ \ images/Cat.gif\r\n\ \ \ images/Dog.gif\r\n\ \ \ images/Rabbit.gif\r\n\ \ \ images/Pig.gif\r\n
+comment1.params=
+comment1.target=ComboBoxDemo()
+comment2.params=e
+comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment2.text=Listens\ to\ the\ combo\ box.
+comment3.params=
+comment3.target=void\ createAndShowGUI()
+comment3.text=\r\n\ Create\ the\ GUI\ and\ show\ it.\ \ For\ thread\ safety,\r\n\ this\ method\ should\ be\ invoked\ from\ the\r\n\ event-dispatching\ thread.\r\n
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+comment5.params=
+comment5.target=void\ run()
+numComments=6

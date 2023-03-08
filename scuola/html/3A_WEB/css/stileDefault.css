@@ -1,0 +1,139 @@
+.block {
+    display: block;
+    width: 100%;
+}
+.sidebar {
+    height: 100%;
+    width: 230px;
+    background-color: #63372c !important;
+    position: fixed !important;
+    z-index: 1;
+    overflow: auto !important;
+}
+.sidebar a {
+    color: #c97d60 !important;
+    padding: 12px 40% 12px 10px !important;
+}
+.sidebar a:hover {
+    background: #f2e5d7 !important;
+    color: #c97d60 !important;
+}
+.bar-block {
+    width: 100%;
+}
+.border-right {
+    border-right: 1px solid #ccc !important;
+}
+img {
+    height: 300px;
+}
+i {
+    font-family: "Wingdings", Arial, Helvetica, sans-serif;
+}
+a {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
+}
+body {
+    color: #262322;
+    background: #ffbcb5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+    color: #c97d60;
+    margin-bottom: 100px;
+    font-size: 100px;
+    font-family: "Comic Sans MS", sans-serif;
+    text-align: center;
+}
+h2 {
+    color: #c97d60;
+    text-align: center;
+}
+p {
+    color: #262322;
+}
+.terzo {
+    float: left;
+    max-width: 30%;
+    margin-right: 1%;
+}
+.quinto {
+    float: left;
+    max-width: 19%;
+    margin-right: 1%;
+}
+.menu {
+    overflow: hidden;
+    background-color: #f2e5d7;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.menu a {
+    float: left;
+    font-size: 16px;
+    color: #c97d60;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.menu a:hover {
+    background: #c97d60;
+    color: #63372c;
+}
+.footer {
+    padding: 30px;
+    background: #c97d60;
+    color: #f2e5d7;
+    margin-top: 30px;
+}
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+.corpo25 {
+    max-width: 100%;
+    margin: 0 auto;
+    margin-left: 25%;
+}
+.left {
+    float: left;
+    max-width: 32%;
+    margin-right: 1.5%;
+}
+.right {
+    float: right;
+    max-width: 32%;
+}
+.blank {
+    clear: both;
+}
+.activeSidebar {
+    background: #f2e5d7;
+    width: 22%;
+    height: 2000px;
+    float: left;
+}
+body.darkmode .footer {
+    background: #b3bfb8;
+    color: #3c493f;
+}
+body.darkmode .menu a:hover {
+    background: #a2e3c4;
+    color: #f0f7f4;
+}
+body.darkmode {
+    background: #3c493f;
+}
+body.darkmode .menu a {
+    color: #a2e3c4;
+}
+body.darkmode p {
+    color: #b3bfb8;
+}
+body.darkmode h1 {
+    color: #f0f7f4;
+}
+body.darkmode .menu {
+    background: #7e8d85;
+}

@@ -1,0 +1,47 @@
+import java.util.Scanner;
+import java.util.Random;
+import java.util.ArrayList;
+import java.io.File;
+import java.io.FileNotFoundException;
+public class wordle {
+    public static void main (String arg[]) {
+        Scanner inp = new Scanner(System.in);
+        Random rand = new Random();
+        ArrayList<String> words = new ArrayList<>();
+        try {
+            File oParole = new File("word.txt.txt");
+            Scanner scanner = new Scanner(oParole);
+            while (scanner.hasNextLine()) {
+            words.add(scanner.nextLine().trim());
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File delle parole non trovato");
+        }
+        System.out.println("Il file word conteiene in posizione 2 la parola " + words.get(2));
+        String pSegreta = words.get(rand.nextInt(words.size()));
+        char [] p = new char[ 5 ];
+        for (int i = 0;i<5;i++) {
+            p[i] = pSegreta.charAt(i);
+        }
+        System.out.println("Inserisci una parola inglese di 5 lettere");
+        String input;
+        int [] charList = new int[ 5 ]; 
+        do {
+            do {
+                input = inp.next();
+            } while (input.length()!=5);
+            for (int i = 0;i<5;i++) {
+                if (input.charAt(i)==p[i]) {
+                    charList[i] = 2;
+                }
+                else if (pSegreta.contains(input)) {
+                    charList[i] = 1;
+                }
+            }
+        } while (input!=pSegreta);
+        System.out.println("Hai indovinato la parola segreta!");
+        
+        
+    }
+}

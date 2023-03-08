@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+}
+.head {
+    margin: 0 auto;
+    width: 1140px;
+}
+.corpo {
+    margin: 0 auto;
+    width: 1140px;
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 100%;
+}
+.isActive {
+    color: #94d4f4 !important;
+}
+.rightMenu {
+    text-align: right;
+    float: right;
+    margin-top: 30px;
+    clear: both;
+}
+.rightMenu a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #b0b3bd;
+    padding-right: 30px;
+}
+.colonna50 {
+    float: left;
+    margin-right: 1%;
+    width: 48%;
+}
+.lastColonna50 {
+    float: left;
+    margin-left: 1%;
+    width: 48;
+}
+.colonna25 {
+    float: left;
+    margin-right: 1%;
+    width: 24%;
+}
+.clear {
+    clear: both;
+}
+hr {
+    border-color: aqua;
+}
+.full {
+    width: 100%;
+}
+h3 {
+    color: blue;
+}
+.footer {
+    background-image: url("../Immagini/jesolo.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    padding-bottom: 20px;
+}
