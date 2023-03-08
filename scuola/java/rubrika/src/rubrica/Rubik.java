@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileWriter;
 
@@ -13,11 +14,32 @@ public class Rubik {
     static final String NOME = "Nome = ";
     static final String TELEFONO = "; Telefono = ";
     static final String ETA = "; Età = ";
+    static final String FILE = "src/rubrica.txt";
+
+    static void loadContacts(HashMap<String, Details> map) {
+        try {
+            File myObj = new File(FILE);
+            Scanner scanner = new Scanner(myObj);
+            String[] split;
+            while (scanner.hasNextLine()) {
+                split = scanner.nextLine().split(" ");
+                map.put(split[0], new Details());
+                map.get(split[0]).phone = split[1];
+                map.get(split[0]).age = Integer.valueOf(split[2]);
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            // catch requires a block
+            // so i gave it an empty block
+        }
+
+    }
 
     static void createFile() {
 
         try {
-            File myObj = new File("rubrica.txt");
+            File myObj = new File(FILE);
+            System.out.println(myObj.getAbsolutePath());
             if (myObj.createNewFile()) {
                 System.out.println("File creato: " + myObj.getName());
             } else {
@@ -33,7 +55,7 @@ public class Rubik {
     static void saveAndQuit(HashMap<String, Details> map) {
         createFile();
         try {
-            FileWriter myWriter = new FileWriter("rubrica.txt");
+            FileWriter myWriter = new FileWriter(FILE);
             SortedSet<String> keys = new TreeSet<>(map.keySet());
             for (String key : keys) {
                 myWriter.write(key + " " + map.get(key).phone + " " + map.get(key).age + "\n");
@@ -139,6 +161,7 @@ public class Rubik {
     public static void main(String[] arg) {
         HashMap<String, Details> contacts = new HashMap<>();
         boolean isExiting = false;
+        loadContacts(contacts);
         while (!isExiting) {
             System.out.println(
                     "1. aggiungi un contatto \n2. visualizza tutti i Contatti\n3. visualizza tutti i Contatti sopra i 16 anni\n4. modifica un Contatto\n5. cerca un Contatto \n6. cancella un Contatto\n7. cancella la rubrica\n8. cerca Contatti contenenti un input\n9. Esci e salva");
