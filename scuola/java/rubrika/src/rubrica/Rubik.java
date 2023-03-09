@@ -52,7 +52,7 @@ public class Rubik {
 
     }
 
-    static void saveAndQuit(HashMap<String, Details> map) {
+    static void save(HashMap<String, Details> map) {
         createFile();
         try {
             FileWriter myWriter = new FileWriter(FILE);
@@ -66,7 +66,6 @@ public class Rubik {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-
     }
 
     static void addContact(HashMap<String, Details> map) {
@@ -198,6 +197,6 @@ public class Rubik {
                     break;
             }
         }
-        saveAndQuit(contacts);
+        save(contacts);
     }
 }
